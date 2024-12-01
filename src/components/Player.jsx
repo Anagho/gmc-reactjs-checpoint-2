@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 function Player({ name, team, nationality, jerseyNumber, age, image }) {
   return (
@@ -44,5 +45,25 @@ function Player({ name, team, nationality, jerseyNumber, age, image }) {
     </Card>
   );
 }
+
+// Default Props
+Player.defaultProps = {
+  name: "Unknown Player",
+  team: "Unknown Team",
+  nationality: "unknown",
+  jerseyNumber: 27,
+  age: 17,
+  image: "https://via.placeholder.com/150",
+};
+
+// PropTypes validation
+Player.propTypes = {
+  name: PropTypes.string,
+  team: PropTypes.string,
+  nationality: PropTypes.string,
+  jerseyNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  age: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  image: PropTypes.string,
+};
 
 export default Player;
